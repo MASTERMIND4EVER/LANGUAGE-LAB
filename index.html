@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Lab</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #0D47A1;
+            --hover-color: #FFC107;
+            --background-color: rgb(85, 84, 84);
+            --text-color: #fff;
+            --section-background: white;
+        }
+        body {
+            background-color: var(--background-color);
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: var(--secondary-color);
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--hover-color);
+        }
+        .hero {
+            background: url('C:\Users\Anish\OneDrive\Pictures\Screenshots\Screenshot 2024-06-03 212429.png') no-repeat center center/cover;
+            color: var(--text-color);
+            text-align: center;
+            padding: 100px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            max-width: 800px;
+        }
+        .cta-button {
+            background-color: var(--hover-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+        main {
+            padding: 20px;
+        }
+        section {
+            background-color: var(--section-background);
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section h2 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+        .zoom-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--section-background);
+            padding: 20px;
+            border: 2px solid var(--primary-color);
+            margin-bottom: 20px;
+            border-radius: 5px;
+        }
+        .zoom-section img {
+            height: 100px; /* Adjust size as needed */
+            margin-right: 40px;
+        }
+        .contact-form {
+            background-color: var(--section-background);
+            padding: 20px;
+            border: 2px solid var(--primary-color);
+            margin-bottom: 20px;
+            border-radius: 5px;
+            max-width: 1400px;
+            margin: 0 auto 30px auto; /* Center the form horizontally */
+        }
+        .contact-form input,
+        .contact-form textarea {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .contact-form textarea {
+            height: 150px; /* Adjust the height as needed */
+        }
+        .contact-form button {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto; /* Center the button horizontally */
+        }
+        .contact-form button:hover {
+            background-color: var(--secondary-color);
+        }
+        .social-media {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .social-media a {
+            color: var(--primary-color);
+            margin: 0 10px;
+            font-size: 1.5em;
+            text-decoration: none;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+            .zoom-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .zoom-section img {
+                margin: 0 0 20px 0;
+            }
+            .contact-form input,
+            .contact-form textarea {
+                width: 100%;
+            }
+        }
+        .feature-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .feature {
+            background-color: var(--section-background);
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 30%;
+            margin-bottom: 20px;
+        }
+        .feature h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+    </style>
+    <script>
+        function showAlert() {
+            alert("Thank you for your valuable feedback!");
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>LANGUAGE LAB</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        {% if logged_in %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('signup') }}">Signup</a>
+        {% endif %}
+        <a href="{{ url_for('courses') }}">Courses Offered</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('timings') }}">Timings</a>
+    </nav>
+    <section class="hero">
+        <h1>Welcome to Language Lab</h1>
+        <p>Unlock your fluency and confidence with our interactive online classes – join Language Lab and master English from anywhere in the world.</p>
+        <a href="{{ url_for('signup') }}" class="cta-button">Get Started</a>
+    </section>
+    <main>
+        <section class="feature-section">
+            <div class="feature">
+                <h3>Interactive Classes</h3>
+                <p>Participate in dynamic, real-time sessions with skilled instructors who provide immediate feedback and guidance.</p>
+            </div>
+            <div class="feature">
+                <h3>Customized Learning</h3>
+                <p>Experience tailored lessons designed to meet your specific learning needs and goals, ensuring a unique and effective educational journey.</p>
+            </div>
+            <div class="feature">
+                <h3>Community Support</h3>
+                <p>Become part of a vibrant community where learners and educators collaborate, share insights, and support each other’s growth.</p>
+            </div>
+        </section>
+        <section class="zoom-section">
+            <img src="{{ url_for('static', filename='img/meet.png') }}" alt="Google Meet Logo"> <!-- Update the path accordingly -->
+            <div>
+                <h2>Join Our Classes Online</h2>
+                <p>We use Google Meet for our online classes to provide you with the best learning experience. Join us from anywhere in the world and improve your English skills.</p>
+            </div>
+        </section>
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form action="/contact" method="POST" onsubmit="showAlert()">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+    <section class="social-media">
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+    </section>
+    <footer>
+        <p>&copy; 2024 Language Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>

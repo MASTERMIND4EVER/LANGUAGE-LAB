@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Slots</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #0D47A1;
+            --hover-color: #FFC107;
+            --background-color: rgb(85, 84, 84); /* Match your cover page color */
+            --text-color: #fff;
+            --section-background: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background-color: var(--secondary-color);
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--hover-color);
+        }
+        .slots-container {
+            background-color: var(--section-background);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            max-width: 800px;
+            width: 90%;
+            text-align: center;
+        }
+        .slots-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .slot-option {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: 1.5em;
+        }
+        .slot-option:hover {
+            background-color: var(--hover-color);
+        }
+        .slot-option a {
+            color: var(--text-color);
+            text-decoration: none;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LANGUAGE LAB</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('timings') }}">Back to Timings</a>
+    </nav>
+    <div class="slots-container">
+        <h1>Select a Morning Slot</h1>
+        <div class="slot-option">
+            <a href="#">7:00 AM - 8:00 AM</a>
+        </div>
+        <div class="slot-option">
+            <a href="#">8:00 AM - 9:00 AM</a>
+        </div>
+        <div class="slot-option">
+            <a href="#">9:00 AM - 10:00 AM</a>
+        </div>
+        <div class="slot-option">
+            <a href="#">10:00 AM - 11:00 AM</a>
+        </div>
+        <div class="slot-option">
+            <a href="#">11:00 AM - 12:00 PM</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Language Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>

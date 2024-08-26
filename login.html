@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Language Lab</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #0D47A1;
+            --hover-color: #FFC107;
+            --background-color: rgb(85, 84, 84); /* Match your cover page color */
+            --text-color: #fff;
+            --section-background: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+        }
+        .login-container {
+            background-color: var(--section-background);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px; /* Ensures responsiveness */
+        }
+        .login-container h1 {
+            margin-top: 0;
+            color: var(--primary-color);
+            font-size: 2rem;
+            text-align: center;
+        }
+        .login-container input {
+            width: calc(100% - 22px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .login-container button {
+            width: 100%;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: var(--secondary-color);
+        }
+        .login-container p {
+            text-align: center;
+            margin-top: 20px;
+            /* font-size: 0.9rem; */
+            text-decoration-color: black;
+            color: black;
+        }
+        .login-container a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .login-container a:hover {
+            color: var(--secondary-color);
+        }
+        .error {
+            color: red;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+      
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form action="{{ url_for('login') }}" method="POST">
+            <input type="email" name="email" placeholder="Email" required><br>
+            <input type="password" name="password" placeholder="Password" required><br>
+            <button type="submit">Login</button>
+        </form>
+        <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up here</a></p>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>

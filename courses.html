@@ -1,0 +1,88 @@
+<!-- courses.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses Offered</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #0D47A1;
+            --hover-color: #FFC107;
+            --background-color: rgb(85, 84, 84); /* Match your cover page color */
+            --text-color: #fff;
+            --section-background: white;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .courses-container {
+            background-color: var(--section-background);
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 800px;
+        }
+        .courses-container h1 {
+            color: var(--primary-color);
+            text-align: center;
+        }
+        .course {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+        }
+        .course h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+        .course p {
+            margin: 5px 0;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            text-align: center;
+        }
+        .cta-button:hover {
+            background-color: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="courses-container">
+        <h1>Courses Offered</h1>
+        <div class="course">
+            <h2>English Course</h2>
+            <p>Duration: 1 month</p>
+            <p>Batch: June 2024</p>
+            <p>Details: This course focuses on improving your English fluency and vocabulary through interactive online sessions.</p>
+            <a href="{{ url_for('timings') }}" class="cta-button">Apply</a>
+        </div>
+        <div class="course">
+            <h2>Hindi Course</h2>
+            <p>Duration: 1 month</p>
+            <p>Batch: June 2024</p>
+            <p>Details: This course is designed to help you master Hindi language skills, from basics to advanced levels, in an engaging online environment.</p>
+            <a href="{{ url_for('timings') }}" class="cta-button">Apply</a>
+        </div>
+    </div>
+</body>
+</html>

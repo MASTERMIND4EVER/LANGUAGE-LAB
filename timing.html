@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timings</title>
+    <style>
+        :root {
+            --primary-color: #1976D2;
+            --secondary-color: #0D47A1;
+            --hover-color: #FFC107;
+            --background-color: rgb(85, 84, 84); /* Match your cover page color */
+            --text-color: #fff;
+            --section-background: white;
+            --slot-background: #1976D2;
+            --slot-hover-background: #FFC107;
+            --slot-padding: 40px;
+            --slot-font-size: 2em;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        nav {
+            background-color: var(--secondary-color);
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+        }
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2em;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--hover-color);
+        }
+        .timings-container {
+            background-color: var(--section-background);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 30px auto;
+            max-width: 1000px;
+            width: 90%;
+            text-align: center;
+        }
+        .timings-container h1 {
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .slot-section {
+            background-color: var(--slot-background);
+            color: var(--text-color);
+            padding: var(--slot-padding);
+            margin: 20px 0;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-size: var(--slot-font-size);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .slot-section:hover {
+            background-color: var(--slot-hover-background);
+        }
+        .slot-section a {
+            color: var(--text-color);
+            text-decoration: none;
+            display: block;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            text-align: center;
+            padding: 15px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LANGUAGE LAB</h1>
+    </header>
+    <nav>
+        <a href="{{ url_for('home') }}">Home</a>
+        {% if logged_in %}
+            <a href="{{ url_for('logout') }}">Logout</a>
+        {% else %}
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('signup') }}">Signup</a>
+        {% endif %}
+        <a href="{{ url_for('courses') }}">Courses Offered</a>
+        <a href="{{ url_for('about') }}">About Us</a>
+        <a href="{{ url_for('timings') }}">Timings</a>
+    </nav>
+    <div class="timings-container">
+        <h1>Select a Slot</h1>
+        <div class="slot-section">
+            <a href="{{ url_for('morning') }}">Morning Slots</a>
+        </div>
+        <div class="slot-section">
+            <a href="{{ url_for('evening') }}">Evening Slots</a>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 Language Lab. All rights reserved.</p>
+    </footer>
+</body>
+</html>
